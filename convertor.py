@@ -16,7 +16,8 @@ unit = st.selectbox("Select Conversion", unit_options[category])
 value = st.number_input("Enter Value", min_value=0.0, format="%.2f")
 
 def convert_units(category, value, unit):
-    if category == "Length":
+    if category == "Length":   # conditional statement
+        # Dictionary and Arithmetic Operators performs math for each conversion and stores in dictinaory
         conversions = {
             "Kilometers to meter": value * 1000,
             "Meter to Kilometers": value / 1000,
@@ -43,8 +44,8 @@ def convert_units(category, value, unit):
             "Second to millisecond": value * 1000,
             "Millisecond to second": value / 1000
         }
-    return conversions.get(unit, "Invalid conversion")
+    return conversions.get(unit, "Invalid conversion") # get() disctinary method Returns the result of the selected conversion or shows "Invalid conversion" if not found.
 
 if st.button("Convert"):
-    result = convert_units(category, value, unit)
-    st.success(f"The result is {result:.2f}")
+    result = convert_units(category, value, unit) #Function Call & Variable Assignment, stores the result in result varibale
+    st.success(f"The result is {result:.2f}") # string formatting
